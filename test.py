@@ -11,7 +11,7 @@ def modify_image(filename, word, color):
   frame = Image.open(color + "Frame.png")
   frame.paste(background, (74, 138))
   draw = ImageDraw.Draw(frame)
-  font = ImageFont.truetype("BebasNeueRegular.ttf", 225)
+  font = ImageFont.truetype("BebasNeueBold.ttf", 225)
   draw.text((325, 1490),word.upper(),(255,255,255),font=font)
   removed_ending = filename.split('.')[0]
   frame.save(removed_ending + '_modified.jpg')
