@@ -2,11 +2,13 @@ import os
 from flask import Flask, request, redirect, url_for, send_from_directory, render_template
 from werkzeug.utils import secure_filename
 from test import modify_image
-UPLOAD_FOLDER = '/Users/anubhav/Documents/GithubRepos/selfie-flask-app/uploads'
+#UPLOAD_FOLDER = '/Users/anubhav/Documents/GithubRepos/selfie-flask-app/uploads'
+UPLOAD_FOLDER = '/var/www/html/ubergallery/gallery-images'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-
+INDEX = 0
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['INDEX'] = INDEX
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -18,12 +20,14 @@ def upload_file():
         file = request.files['file']
         word = request.form['word']
 	color = request.form['color']
+	app.config['INDEX'] += 1
 	if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            filename = secure_filename(str(app.config['INDEX']) + file.filename)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
             modify_image(file_path, word, color)
             modified_path = filename.split('.')[0] + '_modified.jpg'
+	    os.remove(file_path)
             return redirect(url_for('send_file', filename=modified_path))
     return render_template('index.html')
 
