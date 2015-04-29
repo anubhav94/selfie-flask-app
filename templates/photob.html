@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/5181061/arcelik/photoboothStyle.css" />
+<link href='http://fonts.googleapis.com/css?family=Dosis:100200,300,500,600' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <script src="https://dl.dropboxusercontent.com/u/5181061/arcelik/jqmobile.js"></script>
+
+</head>
+<body>
+
+    <title>Welcome to Arcelik Experience's Photobooth</title>
+   
+<div id="uploadPhoto">
+        <img id="camIcon" src="https://dl.dropboxusercontent.com/u/5181061/arcelik/camIcon-01.png">
+         <h1>Take a photo with us</h1>       
+   
+   <form action="" method=post enctype=multipart/form-data>
+      <p><input id="choosePhoto" type=file name=file></p>
+	<input class="radiB" type="radio" name=color value="pink"> Pink  <br>
+	<input class="radioB" type="radio" name=color value="yellow"> Yellow  <br>
+	<input class="radioB" type="radio" name=color value="green"> Green <br>
+	<input class="radioB" type="radio" name=color value="blue"> Blue <br>
+<br>	Word you want displayed: 
+  <input type="text" name=word> <br>
+      <p>   <input type=submit value=Upload></p>
+    </form>
+
+  </div>
+</body>
+</html>

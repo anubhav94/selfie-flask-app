@@ -29,7 +29,7 @@ def upload_file():
             modified_path = filename.split('.')[0] + '_modified.jpg'
 	    os.remove(file_path)
             return redirect(url_for('send_file', filename=modified_path))
-    return render_template('index.html')
+    return render_template('photob.html')
 
 # @app.route('/uploads/<filename>')
 # def uploaded_file(filename):
